@@ -1,0 +1,14 @@
+<div id="joke">Loading joke...</div>
+
+<script>
+fetch('https://v2.jokeapi.dev/joke/Any?safe-mode').then((response) => response.json())
+.then((data) => {
+    if (data.type == 'single'){
+        document.getElementById("joke").innerText = data.joke
+    }
+    else{
+         document.getElementById("joke").innerText = data.setup + '\n'+ "..." + data.delivery
+    }
+})
+
+</script>
